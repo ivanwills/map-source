@@ -1,0 +1,37 @@
+td, th {
+    border : 1px solid grey;
+    padding : 3px 5px;
+}
+.old {
+    color : red;
+}
+.age_0 { background-color : #EFE; }
+.age_1 { background-color : #FEE; }
+.age_2 { background-color : #FDD; }
+.age_3 { background-color : #FCC; }
+.age_4 { background-color : #FBB; }
+.age_5 { background-color : #FAA; }
+.age_6 { background-color : #F99; }
+.age_7 { background-color : #F88; }
+.age_8 { background-color : #F77; }
+.age_9 { background-color : #F66; }
+
+ul {
+    list-style-type: none;
+    border-collapse: collapse;
+    margin: 10px;
+    padding: 0;
+}
+li {
+    display: inline-block;
+    width: 20em;
+    border: 1px solid silver;
+    padding: 4px;
+}
+
+span.back {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+}

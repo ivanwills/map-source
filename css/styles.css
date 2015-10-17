@@ -1,0 +1,12 @@
+.foot {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin-bottom: 0;
+}
+.branch {
+	max-width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
