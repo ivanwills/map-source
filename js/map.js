@@ -22,6 +22,8 @@
         accessToken: 'pk.eyJ1IjoiaXZhbndpbGxzIiwiYSI6ImNpZnZjcHZzNTIyeTF1N2x4YmlveHgyYTMifQ.24HDwqrrCD8E_YHhCvF_kg'
     }).addTo(map);
 
+    var marker = L.marker([-33.786, 151.121]).addTo(map);
+
     var ractive = new Ractive(options);
 
     ractive.on('thing', function(evt) {
