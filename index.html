@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<title>Stash Source</title>
-		<script type="text/javascript" src="js/index.js"></script>
-		<script type="text/javascript" src="js/ractive.min.js"></script>
-		<script type="text/javascript" src="js/hammer.min.js"></script>
-		<script type="text/javascript" src="js/ractive-touch/index.js"></script>
-		<script type="text/javascript" src="js/ractivef-base.js"></script>
-		<script type="text/javascript" src="js/superagent.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/foundation.css">
-		<link rel="stylesheet" type="text/css" href="css/styles.css">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Map Source</title>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/ractive.min.js"></script>
+        <script type="text/javascript" src="js/hammer.min.js"></script>
+        <script type="text/javascript" src="js/ractive-touch/index.js"></script>
+        <script type="text/javascript" src="js/ractivef-base.js"></script>
+        <script type="text/javascript" src="js/superagent.js"></script>
+        <script type="text/javascript" src="js/leaflet.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/foundation.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="stylesheet" type="text/css" href="css/leaflet.css">
 
-	</head>
-	<body>
-		<div id="map"></div>
-		<div id="container"></div>
-		<script id="template" type="text/ractive">
-			<ux-panel>
-				<ux-header level="1">Head</ux-header>
-			</ux-panel>
-			<ux-panel class="foot">
-				<ux-footer level="1">Foot</ux-footer>
-			</ux-panel>
-		</script>
-		<script type="text/javascript" src="js/stash.js"></script>
-	</body>
+    </head>
+    <body>
+        <div id="map"></div>
+        <div id="container"></div>
+        <script id="template" type="text/ractive">
+            <div style="display: {{#if events}}block{{else}}none{{/if}}">
+                <ux-panel>
+                    <ux-header level="1">Events</ux-header>
+                </ux-panel>
+                <ux-panel>
+                </ux-panel>
+                <ux-panel class="foot">
+                    <ux-footer level="1">Foot</ux-footer>
+                </ux-panel>
+            </div>
+        </script>
+        <script type="text/javascript" src="js/map.js"></script>
+    </body>
 </html>
