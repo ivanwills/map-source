@@ -57,10 +57,10 @@ gulp.task('watch', function () {
     var self = this;
     plugins.watch([
         '*.html',
-        '**/*.js',
-        '**/*.css'
+        'js//**/*.js',
+        'css/**/*.css'
     ], function () {
-        runSequence('build', 'html', function (err) {
+        runSequence('copy', function (err) {
             self.emit('end');
         });
     });
