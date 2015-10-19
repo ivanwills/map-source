@@ -4,6 +4,7 @@ var Marker = function(options) {
     this.box    = options.box;
     this.map    = options.map;
     this.click  = options.click;
+    this.ratio  = 100000;
     this.init();
     this.marker = L.marker([this.lat, this.lng]).addTo(this.map);
 };
@@ -49,12 +50,12 @@ Marker.prototype.dist = function(marker) {
 
 Marker.prototype.mark = function(radius) {
     if (this.isMarked()) {
-        this.circle.setRadius(radius * 50000);
+        this.circle.setRadius(radius * this.ratio);
         return;
     }
 
     var pos = this.marker.getLatLng();
-    this.circle = L.circle([pos.lat, pos.lng], radius * 50000, {
+    this.circle = L.circle([pos.lat, pos.lng], radius * this.ratio, {
         color: '#f03',
         opacity: 0.3,
         fillColor: '#f03',

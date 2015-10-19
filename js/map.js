@@ -4,7 +4,11 @@
     var options = {};
     options.el = document.querySelector('#container');
     options.components = {};
-    options.computed = {};
+    options.computed = {
+        feed: function() {
+            return !!this.get('pos');
+        }
+    };
     options.template = '#template';
     options.data = {
         events: true
@@ -43,7 +47,7 @@
             map   : map,
             click : function(latLng) {
                 console.log(latLng);
-                ractive.set('feed', latLng);
+                ractive.set('pos', latLng);
             }
         }));
     }
