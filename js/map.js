@@ -7,6 +7,22 @@
     options.computed = {
         feed: function() {
             return !!this.get('pos');
+        },
+        twitter: function() {
+            var latlng = this.get('pos');
+            var size = Math.floor(Math.random() * 5) % 5;
+            var img = [
+                'twitter1', 'twitter2',
+                'twitter3', 'twitter4', 'twitter5',
+                'twitter1', 'twitter2',
+                'twitter3', 'twitter4', 'twitter5'
+            ];
+            var imgs = [];
+            for (var i = 0; i < size; i++) {
+                imgs.push(img[Math.floor(Math.random() * 10) % 10]);
+            }
+            console.log(size, imgs);
+            return imgs;
         }
     };
     options.template = '#template';
@@ -27,9 +43,10 @@
     //
 
     var centre = [ -33.785, 151.121 ];
-    var box    = [ 0.007, 0.016 ];
-    var radius = 0.004;
-    var max    = 10;
+    var box    = [ 0.015, 0.025 ];
+    var radius = 0.0036;
+    var max    = 20;
+    var pins   = 500;
 
     var map = L.map('map').setView(centre, 16);
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -40,7 +57,7 @@
     }).addTo(map);
 
     var markers = [];
-    for ( var i = 0; i < 90; i++ ) {
+    for ( var i = 0; i < pins; i++ ) {
         markers.push(new Marker({
             centre: centre,
             box   : box,

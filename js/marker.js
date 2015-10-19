@@ -13,6 +13,9 @@ Marker.prototype.init = function() {
     this.lat = this.centre[0] + Math.random() * this.box[0] * 2 - this.box[0];
     this.lng = this.centre[1] + Math.random() * this.box[1] * 2 - this.box[1];
 
+    this.lat = Math.floor(this.lat * 1000) / 1000;
+    this.lng = Math.floor(this.lng * 1000) / 1000;
+
     this.setSpeed();
 };
 
