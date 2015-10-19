@@ -57,8 +57,8 @@ gulp.task('watch', function () {
     var self = this;
     plugins.watch([
         '*.html',
-        'js//**/*.js',
-        'css/**/*.css'
+        './js//**/*.js',
+        './css/**/*.css'
     ], function () {
         runSequence('copy', function (err) {
             self.emit('end');

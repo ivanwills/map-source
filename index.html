@@ -10,10 +10,10 @@
         <script type="text/javascript" src="js/ractivef-base.js"></script>
         <script type="text/javascript" src="js/superagent.js"></script>
         <script type="text/javascript" src="js/leaflet.js"></script>
+        <script type="text/javascript" src="js/marker.js"></script>
         <link rel="stylesheet" type="text/css" href="css/foundation.css">
         <link rel="stylesheet" type="text/css" href="css/styles.css">
         <link rel="stylesheet" type="text/css" href="css/leaflet.css">
-
     </head>
     <body>
         <div id="map"></div>
@@ -21,9 +21,12 @@
         <script id="template" type="text/ractive">
             <div style="display: {{#if events}}block{{else}}none{{/if}}">
                 <ux-panel>
-                    <ux-header level="1">Events</ux-header>
+                    <ux-header level="1">InSitu</ux-header>
                 </ux-panel>
                 <ux-panel>
+                    {{#if feed}}
+                        {{feed}}
+                    {{/if}}
                 </ux-panel>
                 <ux-panel class="foot">
                     <ux-footer level="1">Foot</ux-footer>

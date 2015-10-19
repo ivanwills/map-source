@@ -17,3 +17,7 @@
     margin-bottom: 0;
     visibility: hidden;
 }
+.leaflet-marker-shadow {
+    display: none;
+    visibility: hidden;
+}
