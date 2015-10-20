@@ -1,0 +1,36 @@
+{
+  "name": "map-source",
+  "version": "0.1.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "start": "npm prune && npm install && gulp"
+  },
+  "dependencies": {
+    "gulp": "*",
+    "gulp-copy": "*",
+    "gulp-jshint": "*",
+    "gulp-sass": "*",
+    "ractive-foundation": "git+https://github.com/ractive-foundation/ractive-foundation.git#v0.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "devDependencies": {
+    "express": "^4.10.2",
+    "gulp-connect": "~2.2.0",
+    "gulp-lodash-template": "^0.1.0",
+    "gulp-load-plugins": "~0.9.0",
+    "gulp-util": "^3.0.5",
+    "gulp-watch": "~4.2.0",
+    "hammerjs": "*",
+    "lodash": "^3.9.3",
+    "ractive": "^0.7.3",
+    "ractive-touch": "^0.4.0",
+    "run-sequence": "~1.0.2",
+    "superagent": "0.21.0",
+    "through2": "^0.6.5",
+    "vinyl": "^0.5.0"
+  }
+}
