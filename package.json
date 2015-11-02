@@ -31,6 +31,7 @@
     "merge-stream": "^1.0.0",
     "ractive-foundation": "git+https://github.com/ractive-foundation/ractive-foundation.git#v0.6.0",
     "ractive-foundation": "^0.6.0",
-    "run-sequence": "^1.1.4"
+    "run-sequence": "^1.1.4",
+    "superagent": "0.21.0"
   }
 }

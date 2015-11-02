@@ -58,8 +58,15 @@ gulp.task('copy', function () {
 
 		// node_modules files to vendors
 		gulp.src([
-			'ractive-foundation/dist/*.js'
+			'ractive-foundation/dist/*.js',
+			'superagent/superagent.js'
 		], { cwd: 'node_modules' })
+		.pipe(plugins.copy(config.paths.vendors)),
+
+		gulp.src([
+			'ractive/*.js',
+			'ractive/*.js.map'
+		], { cwd: 'node_modules/ractive-foundation/node_modules' })
 		.pipe(plugins.copy(config.paths.vendors)),
 
 		// src-controlled vendor files to vendors
@@ -74,13 +81,10 @@ gulp.task('copy', function () {
 			'widgets/aidWidget/javascript/aidWidget.js',
 			'plugins/*.*',
 			'core/*.js',
+			'js/**/*',
+			'css/**/*',
 			'index.html'
 		], { cwd: 'src' })
-		.pipe(plugins.copy(config.paths.public)),
-
-		gulp.src([
-			'js/**/*'
-		])
 		.pipe(plugins.copy(config.paths.public))
 
 	);
