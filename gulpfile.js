@@ -29,7 +29,7 @@ gulp.task('jshint', function (callback) {
 gulp.task('build', function (callback) {
 	runSequence(
 		'clean', 'jshint',
-		[ 'concat-components', 'sass' ],
+		[ 'parse-partials', 'concat-components', 'sass' ],
 		[ 'copy' ],
 		callback
 	);
@@ -40,10 +40,11 @@ gulp.task('sass', function () {
 
 		gulp.src('./node_modules/foundation-sites/scss/*.scss')
 			.pipe(plugins.sass())
-			.pipe(gulp.dest('./public/vendors/foundation/css')),
+			.pipe(gulp.dest(config.paths.vendors + '/foundation/css')),
 
 		gulp.src(config.globs.componentsScss)
 			.pipe(plugins.sass())
+			.pipe(plugins.concat('components.css'))
 			.pipe(gulp.dest(config.paths.public + '/components')),
 
 		gulp.src(config.globs.widgetsScss)
@@ -64,8 +65,7 @@ gulp.task('copy', function () {
 		.pipe(plugins.copy(config.paths.vendors)),
 
 		gulp.src([
-			'ractive/*.js',
-			'ractive/*.js.map'
+			'ractive/*.js'
 		], { cwd: 'node_modules/ractive-foundation/node_modules' })
 		.pipe(plugins.copy(config.paths.vendors)),
 
@@ -77,10 +77,9 @@ gulp.task('copy', function () {
 
 		// src files
 		gulp.src([
-			'widgets/baseWidget/javascript/baseWidget.js',
-			'widgets/aidWidget/javascript/aidWidget.js',
 			'plugins/*.*',
 			'core/*.js',
+			'assets/**',
 			'js/**/*',
 			'css/**/*',
 			'index.html'
@@ -91,8 +90,14 @@ gulp.task('copy', function () {
 });
 
 gulp.task('parse-partials', function () {
-	return gulp.src(config.paths.partials)
-		.pipe(ractiveParse('partials.js'))
+	return gulp.src(config.globs.partials)
+		.pipe(ractiveParse({
+			prefix: 'Ractive.partials',
+			name : function(file) {
+				return file.history[0].split(path.sep).slice(-1)[0].replace(/[.]hbs$/, '');
+			}
+		}))
+		.pipe(plugins.concat('partials.js'))
 		.pipe(gulp.dest(config.paths.compiled));
 });
 
@@ -110,7 +115,7 @@ gulp.task('concat-components', function (callback) {
 			params: ['Ractive', 'components'],
 			exports: 'Ractive.components'
 		}))
-		.pipe(gulp.dest('./public/compiled/'));
+		.pipe(gulp.dest(config.paths.compiled));
 });
 
 gulp.task('server', function (callback) {
@@ -140,10 +145,8 @@ gulp.task('server', function (callback) {
 });
 
 gulp.task('open', function () {
-	var port = parseInt(fs.readFileSync('port.http'));
-
 	var options = {
-		url: 'http://localhost:' + port
+		url: 'http://localhost:' + config.port
 	};
 
 	// A file must be specified as the src when running options.url

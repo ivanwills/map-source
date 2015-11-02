@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "del": "^2.0.2",
-    "express": "^4.10.2",
+    "express": "^4.13.3",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-copy": "0.0.2",
@@ -29,8 +29,7 @@
     "jshint-stylish": "^2.0.1",
     "lodash": "^3.10.1",
     "merge-stream": "^1.0.0",
-    "ractive-foundation": "git+https://github.com/ractive-foundation/ractive-foundation.git#v0.6.0",
-    "ractive-foundation": "^0.6.0",
+    "ractive-foundation": "git+https://github.com/ivanwills/ractive-foundation.git#concat_objects_backwards_fix",
     "run-sequence": "^1.1.4",
     "superagent": "0.21.0"
   }

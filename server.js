@@ -1,8 +1,9 @@
 var express = require('express');
-//var fs = require('fs');
 var app = express();
 
-app.use(express.static(__dirname + '/public/'));
-app.listen(8888);
+var port = '31280';
 
-console.log('Map Blaster running on http://localhost:8888');
+app.use(express.static(__dirname + '/public/'));
+app.listen(port);
+
+console.log('package now running on http://localhost:' + port );
