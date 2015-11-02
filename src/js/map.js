@@ -1,4 +1,4 @@
-/* globals Ractive, RactiveF, _, superagent, L */
+/* globals Ractive, _, Markers, L */
 
 (function() {
     var options = {};
@@ -9,7 +9,7 @@
             return !!this.get('pos');
         },
         twitter: function() {
-            var latlng = this.get('pos');
+            this.get('pos');
             var size = Math.floor(Math.random() * 5) % 5;
             var img = [
                 'twitter1', 'twitter2',
@@ -30,7 +30,7 @@
         events: true
     };
 
-    _.extend(options.components, RactiveF.components);
+    _.extend(options.components, Ractive.components);
     _.extend(options.computed, {
     });
 
@@ -42,7 +42,9 @@
     var centre = [ -33.785, 151.121 ];
     var map = L.map('map').setView(centre, 16);
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+            '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © ' +
+            '<a href="http://mapbox.com">Mapbox</a>',
         maxZoom: 18,
         id: 'ivanwills.cifvcpu18233zt5lyrpbtaau4',
         accessToken: 'pk.eyJ1IjoiaXZhbndpbGxzIiwiYSI6ImNpZnZjcHZzNTIyeTF1N2x4YmlveHgyYTMifQ.24HDwqrrCD8E_YHhCvF_kg'
