@@ -87,6 +87,7 @@ gulp.task('copy', function () {
 			'core/*.js',
 			'assets/**',
 			'css/**/*',
+			'img/**/*',
 			'index.html'
 		], { cwd: 'src' })
 		.pipe(plugins.copy(config.paths.public))
