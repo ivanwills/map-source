@@ -3,6 +3,7 @@
 (function() {
     var options = {};
     options.el = document.querySelector('#container');
+    options.template = Ractive.parse(options.el.innerHTML);
     options.components = {};
     options.computed = {
         feed: function() {
@@ -25,7 +26,6 @@
             return imgs;
         }
     };
-    options.template = '#template';
     options.data = {
         events: true
     };

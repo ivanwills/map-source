@@ -2,27 +2,44 @@
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<title>package</title>
+		<title>Map Source</title>
 		<script type="text/javascript" src="vendors/ractive/ractive.min.js"></script>
 		<script type="text/javascript" src="vendors/ractive-foundation/dist/hammer.min.js"></script>
 		<script type="text/javascript" src="vendors/ractive-foundation/dist/ractive-touch.js"></script>
 		<script type="text/javascript" src="vendors/ractive-foundation/dist/ractive-events-tap.js"></script>
 		<script type="text/javascript" src="vendors/ractive-foundation/dist/lodash-compat.js"></script>
 		<script type="text/javascript" src="vendors/ractive-foundation/dist/ractivef.js"></script>
+		<script type="text/javascript" src="vendors/superagent/superagent.js"></script>
+		<script type="text/javascript" src="js/leaflet.js"></script>
+		<script type="text/javascript" src="js/marker.js"></script>
+		<script type="text/javascript" src="js/markers.js"></script>
 		<link rel="stylesheet" type="text/css" href="vendors/foundation/css/foundation.css">
 		<link rel="stylesheet" type="text/css" href="components/components.css">
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<link rel="stylesheet" type="text/css" href="css/leaflet.css">
 	</head>
 	<body>
+		<div id="map"></div>
 		<div id="container">
-			<div class="row">
-				<div class="col">
-					{{> base}}
-				</div>
+			<div style="display: {{#if events}}block{{else}}none{{/if}}">
+				<ux-panel>
+					<ux-header level="1">InSitu</ux-header>
+				</ux-panel>
+				<ux-panel>
+					{{#if pos}}
+						<ux-header level="3">Twitter</ux-header>
+						{{#each twitter}}
+							<img src="img/{{this}}.jpg" title="Twitter"/>
+						{{/each}}
+					{{/if}}
+				</ux-panel>
+				<ux-panel class="foot">
+					<ux-footer level="1">Foot</ux-footer>
+				</ux-panel>
 			</div>
-			{{> base}}
 		</div>
+		<script type="text/javascript" src="js/map.js"></script>
 		<script type="text/javascript" src="compiled/partials.js"></script>
 		<script type="text/javascript" src="compiled/components.js"></script>
-		<script type="text/javascript" src="js/index.js"></script>
 	</body>
 </html>
