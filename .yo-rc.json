@@ -1,0 +1,55 @@
+{
+  "generator-ractive-foundation": {
+    "paths": {
+      "base": "./src",
+      "components": "./src/components/",
+      "widgets": "./src/widgets/",
+      "partials": "./src/partials/",
+      "public": "./public",
+      "vendors": "./public/vendors",
+      "compiled": "./public/compiled",
+      "compiledWidgets": "./public/compiled/widgets"
+    },
+    "globs": {
+      "tests": "./src/widgets/**/tests/*.*",
+      "partials": "./src/partials/**/*.hbs",
+      "componentsScss": "./src/components/**/*.scss",
+      "componentsJs": [
+        "./src/components/**/*.js",
+        "!./src/components/**/*.steps.js"
+      ],
+      "srcJavaScript": [
+        "./src/core/**/*.js",
+        "./src/plugins/**/*.js",
+        "./src/support/**/*.js",
+        "./src/widgets/**/*.js",
+        "./generator/**/*.js",
+        "./tasks/**/*.js",
+        "./test/**/*.js",
+        "./tests/**/*.js",
+        "./server.js",
+        "./gulpfile.js"
+      ],
+      "jshint": [
+        "./src/core/**/*.js",
+        "./src/plugins/**/*.js",
+        "./src/support/**/*.js",
+        "./src/widgets/**/*.js",
+        "./generator/**/*.js",
+        "./tasks/**/*.js",
+        "./test/**/*.js",
+        "./tests/**/*.js",
+        "./server.js",
+        "./gulpfile.js",
+        "!src/plugins/ractiveTap.js"
+      ],
+      "vendorsJs": "./src/vendors/**/*.js",
+      "widgets": "./src/widgets/**/*.*",
+      "widgetsJs": "./src/widgets/**/javascript/*.js",
+      "widgetsScss": "./src/widgets/**/stylesheets/*.scss",
+      "widgetsTpl": "./src/widgets/**/hbs/*.hbs",
+      "widgetsFeatures": "./src/widgets/**/test/*.feature"
+    },
+    "port": "31280"
+  }
+}
