@@ -13,6 +13,10 @@ var fs = require('fs'),
 // All config information is stored in the .yo-rc.json file so that yeoman can
 // also get to this information
 var config = JSON.parse(fs.readFileSync('./.yo-rc.json'))['generator-ractive-foundation'];
+config.globs.srcBuild = config.globs.srcJavaScript.slice();
+config.globs.srcBuild.push(config.globs.partials);
+config.globs.srcBuild.push(config.globs.componentsScss);
+config.globs.srcBuild.push(config.globs.templates);
 
 // Server reference, used in multiple gulp tasks.
 var liveServer = plugins.liveServer.new('server.js');

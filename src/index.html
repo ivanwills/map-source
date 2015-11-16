@@ -10,22 +10,20 @@
 		<script type="text/javascript" src="vendors/ractive-foundation/dist/lodash-compat.js"></script>
 		<script type="text/javascript" src="vendors/ractive-foundation/dist/ractivef.js"></script>
 		<script type="text/javascript" src="vendors/superagent/superagent.js"></script>
-		<script type="text/javascript" src="js/leaflet.js"></script>
 		<script type="text/javascript" src="js/marker.js"></script>
 		<script type="text/javascript" src="js/markers.js"></script>
 		<link rel="stylesheet" type="text/css" href="vendors/foundation/css/foundation.css">
 		<link rel="stylesheet" type="text/css" href="components/components.css">
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
-		<link rel="stylesheet" type="text/css" href="css/leaflet.css">
 	</head>
 	<body>
-		<div id="map"></div>
 		<div id="container">
 			<div style="display: {{#if events}}block{{else}}none{{/if}}">
 				<ux-panel>
 					<ux-header level="1">InSitu</ux-header>
 				</ux-panel>
 				<ux-panel>
+					<div id="map"></div>
 					{{#if pos}}
 						<ux-header level="3">Twitter</ux-header>
 						{{#each twitter}}
@@ -41,5 +39,6 @@
 		<script type="text/javascript" src="js/map.js"></script>
 		<script type="text/javascript" src="compiled/partials.js"></script>
 		<script type="text/javascript" src="compiled/components.js"></script>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDleIWfneBpYE3iLjNB_r1SaPcYeERKVMc&callback=initMap"></script>
 	</body>
 </html>

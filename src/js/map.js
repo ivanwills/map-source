@@ -1,5 +1,6 @@
-/* globals Ractive, _, Markers, L */
+/* globals Ractive, _, Markers, google */
 
+var insitu;
 (function() {
     var options = {};
     options.el = document.querySelector('#container');
@@ -34,22 +35,19 @@
     _.extend(options.computed, {
     });
 
-    var ractive = new Ractive(options);
+    insitu = new Ractive(options);
 
-    ractive.on('thing', function(evt) {
+    var centre, map;
+    insitu.on('mapInit', function(evt) {
+        centre = {lat: -33.785, lng: 151.121};
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: centre,
+            zoom: 18
+        });
     });
 
-    var centre = [ -33.785, 151.121 ];
-    var map = L.map('map').setView(centre, 16);
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-            '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © ' +
-            '<a href="http://mapbox.com">Mapbox</a>',
-        maxZoom: 18,
-        id: 'ivanwills.cifvcpu18233zt5lyrpbtaau4',
-        accessToken: 'pk.eyJ1IjoiaXZhbndpbGxzIiwiYSI6ImNpZnZjcHZzNTIyeTF1N2x4YmlveHgyYTMifQ.24HDwqrrCD8E_YHhCvF_kg'
-    }).addTo(map);
-
-    var markers;
-    markers = new Markers(map, centre, ractive);
 })();
+
+function initMap() {
+    insitu.fire('mapInit');
+}
